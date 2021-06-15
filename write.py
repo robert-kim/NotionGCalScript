@@ -159,8 +159,8 @@ def gcal_request(data):
             'dateTime': f'{date_end_converted}',
             'timeZone': 'America/New_York'
         }
-
-    calendar_id = 'ei26d4fpvfjhkdiok2cvgqrfcs@group.calendar.google.com'
+    with open("calendar_id.txt") as f:
+        calendar_id = f.read()
 
     event = service.events().insert(calendarId=calendar_id, body=event).execute()
 
